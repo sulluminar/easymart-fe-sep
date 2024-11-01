@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div *ngIf="allProduct.length == 0" class="d-flex justify-content-center align-items-center flex-column">
+    <img src="https://i.pinimg.com/originals/f6/e4/64/f6e464230662e7fa4c6a4afb92631aed.png" alt="">
+    <h4 class="test-danger">Your Wishlist Is Empty...</h4>
+</div>
+<div *ngIf="allProduct.length>0" class="d-flex justify-content-center align-items-center flex-column" style="margin-top: 60px;">
+    <h5 class="text-danger">Your Wishlist</h5>
+
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5" *ngFor="let product of allProduct">
+                    <div class="card ">
+                        <img class="card-img-top" [src]="product.image" alt="..."  height="200px"/>
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{product.title}}</h5>
+                                
+                                {{product.pric}}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between m-3">
+                            <a class="btn btn-outline-danger" (click)="removeItem(product._id)"><i class="fa-solid fa-trash"></i></a>
+                            <a class="btn btn-outline-success" (click)="addTocart(product)" ><i class="fa-solid fa-cart-shopping mt-auto"></i></a>
+    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+ 
+</div>
